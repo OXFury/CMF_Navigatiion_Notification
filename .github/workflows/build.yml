@@ -9,6 +9,11 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: CMFNavigation-Android-Project/CMFNavigation
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cmf-navigation-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
+          path: CMFNavigation-Android-Project/CMFNavigation/app/build/outputs/apk/debug/app-debug.apk

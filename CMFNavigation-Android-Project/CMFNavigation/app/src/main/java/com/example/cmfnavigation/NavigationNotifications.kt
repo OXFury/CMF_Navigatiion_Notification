@@ -60,8 +60,15 @@ object NavigationNotifications {
         context.getSystemService(NotificationManager::class.java).cancel(ROUTE_ID)
     }
 
-    private fun base(context: Context, channel: String): Notification.Builder {
-        return if (Build.VERSION.SDK_INT >= 26) Notification.Builder(context, channel)
-        else @Suppress("DEPRECATION") Notification.Builder(context)
+   private fun base(context: Context, channel: String): Notification.Builder {
+    val builder = if (Build.VERSION.SDK_INT >= 26) {
+        Notification.Builder(context, channel)
+    } else {
+        Notification.Builder(context)
     }
+
+    builder.setSmallIcon(android.R.drawable.ic_dialog_info)
+
+    return builder
+}
 }

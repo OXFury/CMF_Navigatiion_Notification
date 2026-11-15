@@ -42,7 +42,7 @@ class MainActivity : Activity() {
         }
         destination = EditText(this).apply {
             hint = "Destination (place or address)"
-            singleLine = true
+            setSingleLine(True)
         }
         val start = Button(this).apply {
             text = "Find place & start"
